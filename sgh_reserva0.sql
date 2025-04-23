@@ -16,30 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `fatura`
+-- Table structure for table `reserva`
 --
 
-DROP TABLE IF EXISTS `fatura`;
+DROP TABLE IF EXISTS `reserva`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fatura` (
-  `id_fatura` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `id_estadia` int(11) DEFAULT NULL,
-  `emitida_para` varchar(20) DEFAULT NULL,
-  `data_emissao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `total` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id_fatura`),
-  UNIQUE KEY `id_fatura` (`id_fatura`)
+CREATE TABLE `reserva` (
+  `id_reserva` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) DEFAULT NULL,
+  `id_empresa` int(11) DEFAULT NULL,
+  `data_inicio` date NOT NULL,
+  `data_fim` date NOT NULL,
+  `tipo_estadia` varchar(10) DEFAULT NULL,
+  `tipo_quarto` varchar(20) DEFAULT NULL,
+  `contrato_codigo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_reserva`),
+  UNIQUE KEY `id_reserva` (`id_reserva`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `fatura`
+-- Dumping data for table `reserva`
 --
 
-LOCK TABLES `fatura` WRITE;
-/*!40000 ALTER TABLE `fatura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fatura` ENABLE KEYS */;
+LOCK TABLES `reserva` WRITE;
+/*!40000 ALTER TABLE `reserva` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reserva` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-16 10:58:27
+-- Dump completed on 2025-04-23 11:55:51

@@ -16,30 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `fatura`
+-- Table structure for table `cliente`
 --
 
-DROP TABLE IF EXISTS `fatura`;
+DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fatura` (
-  `id_fatura` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `id_estadia` int(11) DEFAULT NULL,
-  `emitida_para` varchar(20) DEFAULT NULL,
-  `data_emissao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `total` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id_fatura`),
-  UNIQUE KEY `id_fatura` (`id_fatura`)
+CREATE TABLE `cliente` (
+  `id_cliente` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `sexo` char(1) DEFAULT NULL,
+  `data_nascimento` date DEFAULT NULL,
+  `nif` varchar(20) DEFAULT NULL,
+  `morada` text,
+  `email` varchar(100) DEFAULT NULL,
+  `nacionalidade` varchar(50) DEFAULT NULL,
+  `tipo_documento` varchar(10) DEFAULT NULL,
+  `numero_documento` varchar(50) DEFAULT NULL,
+  `id_empresa` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_cliente`),
+  UNIQUE KEY `id_cliente` (`id_cliente`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `fatura`
+-- Dumping data for table `cliente`
 --
 
-LOCK TABLES `fatura` WRITE;
-/*!40000 ALTER TABLE `fatura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fatura` ENABLE KEYS */;
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-16 10:58:27
+-- Dump completed on 2025-04-23 11:55:51

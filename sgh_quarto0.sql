@@ -16,30 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `fatura`
+-- Table structure for table `quarto`
 --
 
-DROP TABLE IF EXISTS `fatura`;
+DROP TABLE IF EXISTS `quarto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fatura` (
-  `id_fatura` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `id_estadia` int(11) DEFAULT NULL,
-  `emitida_para` varchar(20) DEFAULT NULL,
-  `data_emissao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `total` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id_fatura`),
-  UNIQUE KEY `id_fatura` (`id_fatura`)
+CREATE TABLE `quarto` (
+  `id_quarto` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `numero` int(11) NOT NULL,
+  `tipo` varchar(20) DEFAULT NULL,
+  `dimensao` varchar(50) DEFAULT NULL,
+  `piso` int(11) DEFAULT NULL,
+  `vista` varchar(50) DEFAULT NULL,
+  `qualidade_acabamento` varchar(50) DEFAULT NULL,
+  `equipamentos` text,
+  `estado` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_quarto`),
+  UNIQUE KEY `id_quarto` (`id_quarto`),
+  UNIQUE KEY `numero` (`numero`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `fatura`
+-- Dumping data for table `quarto`
 --
 
-LOCK TABLES `fatura` WRITE;
-/*!40000 ALTER TABLE `fatura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fatura` ENABLE KEYS */;
+LOCK TABLES `quarto` WRITE;
+/*!40000 ALTER TABLE `quarto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `quarto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-16 10:58:27
+-- Dump completed on 2025-04-23 11:55:51

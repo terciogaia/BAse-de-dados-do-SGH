@@ -16,30 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `fatura`
+-- Table structure for table `utilizadores`
 --
 
-DROP TABLE IF EXISTS `fatura`;
+DROP TABLE IF EXISTS `utilizadores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fatura` (
-  `id_fatura` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `id_estadia` int(11) DEFAULT NULL,
-  `emitida_para` varchar(20) DEFAULT NULL,
-  `data_emissao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `total` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id_fatura`),
-  UNIQUE KEY `id_fatura` (`id_fatura`)
+CREATE TABLE `utilizadores` (
+  `id_utilizadores` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  `tipo_usuario` enum('Administrador','Funcionário') DEFAULT NULL,
+  PRIMARY KEY (`id_utilizadores`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `fatura`
+-- Dumping data for table `utilizadores`
 --
 
-LOCK TABLES `fatura` WRITE;
-/*!40000 ALTER TABLE `fatura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fatura` ENABLE KEYS */;
+LOCK TABLES `utilizadores` WRITE;
+/*!40000 ALTER TABLE `utilizadores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `utilizadores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-16 10:58:27
+-- Dump completed on 2025-04-23 11:55:49
